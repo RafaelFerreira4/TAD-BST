@@ -1,9 +1,3 @@
-//#ifndef __NO__
-//#define __NO__
-
-#ifndef NO_H
-#define NO_H
-
 #include "No.h"
 
 No::No(int chave)
@@ -37,4 +31,4 @@ void No::setDir(No *no)
 {
     dir = no;
 }
-#endif
+
