@@ -6,6 +6,12 @@
 
 using namespace std;
 
+void continuar(){
+	cout << "\nPressione ENTER para continuar";
+	getch();
+	system("cls"); // Windows Only
+}
+
 void print_logo(){
 	cout << "                        ...             ....                     "<< endl;
 	cout << "                      =*rrr*+==:--:-.:+*rrrr*=                   "<< endl;
@@ -36,10 +42,8 @@ void print_logo(){
 	cout << " Por:                                                            "<< endl;
 	cout << " Igor Soler Cavalcanti - 42013550                                "<< endl;
 	cout << " Paloma                                                          "<< endl;
-	cout << " Rafael                                                          "<< endl << endl;
-	cout << "                 Pressione ENTER para continuar";
-	getch();
-	system("cls"); // Windows Only
+	cout << " Rafael                                                          "<< endl;
+	continuar();
 }
 
 int main()
@@ -119,7 +123,7 @@ int main()
 		}
 		case 7:
 		{
-			cout << "text" ;
+			cout << "Qde de folhas: " << arv.contarFolhas(arv.getRaiz());
 			break;
 		}
 		case 8:
@@ -141,6 +145,7 @@ int main()
 			if (opcao != 0)
 				cout << "\n Opcao invalida! \n\n\n";
 		} // fim switch
+	continuar();
 	} while (opcao != 0);
 
 	return 0;

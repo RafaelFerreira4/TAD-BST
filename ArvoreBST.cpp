@@ -149,6 +149,23 @@ int ArvoreBST::altura(No *atual)
     }
 }
 
+// versao recursiva
+int ArvoreBST::contarFolhas(No *atual)
+{
+	// Se o no' entrado nao existir (NULL)
+	// Retorna o caso base NULL, 0
+    if (atual == NULL)
+        return 0;
+    // Se o no' nao possuir filhos e' um no' folha
+    // Retorna o caso basse folha, 1
+    else if (atual->getDir() == NULL && atual->getEsq() == NULL) 
+        return 1;
+    // Se o no' nao e' NULL e nem Folha
+    // Percorre as subarvores
+	else 
+		return contarFolhas(atual->getEsq()) + contarFolhas(atual->getDir());
+}
+
 // ATIVIDADES INICIAIS DE LAB:
 // pesquisar()
 // qdeNos()

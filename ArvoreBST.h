@@ -19,5 +19,6 @@ public:
     No *Pesquisar(int dado, No *no);
     No *PesquisarRec(No *r, int k);
     int contarNos(No *atual);
+    int contarFolhas(No *atual);
     int altura(No *atual);
 };
