@@ -10,37 +10,37 @@ ArvoreBST::ArvoreBST()
 
 void ArvoreBST::inserir(int chave)
 {
-    if (raiz == NULL)         // verifica se a ï¿½rvore estï¿½ vazia
-        raiz = new No(chave); // cria um novo nï¿½
+    if (raiz == NULL)         // verifica se a arvore esta' vazia
+        raiz = new No(chave); // cria um novo no'
     else
         inserirAux(raiz, chave);
 }
 
 void ArvoreBST::inserirAux(No *no, int chave)
 {
-    // se for menor, entï¿½o insere ï¿½ esquerda
+    // se for menor, entao insere a' esquerda
     if (chave < no->getChave())
     {
-        // verifica se a esquerda ï¿½ nulo
+        // verifica se a esquerda e' nulo
         if (no->getEsq() == NULL)
         {
             No *novo_no = new No(chave);
-            no->setEsq(novo_no); // seta o novo_no ï¿½ esquerda
+            no->setEsq(novo_no); // set o novo_no a' esquerda
         }
         else
         {
-            // senï¿½o, continua percorrendo recursivamente
+            // senao, continua percorrendo recursivamente
             inserirAux(no->getEsq(), chave);
         }
     }
-    // se for maior, entï¿½o insere ï¿½ direita
+    // se for maior, entao insere a' direita
     else if (chave > no->getChave())
     {
-        // verifica se a direita ï¿½ nulo
+        // verifica se a direita e' nulo
         if (no->getDir() == NULL)
         {
             No *novo_no = new No(chave);
-            no->setDir(novo_no); // seta o novo_no ï¿½ direita
+            no->setDir(novo_no); // set o novo_no a' direita
         }
         else
         {
@@ -48,8 +48,8 @@ void ArvoreBST::inserirAux(No *no, int chave)
             inserirAux(no->getDir(), chave);
         }
     }
-    // se for igual, nï¿½o vai inserir
-    // nï¿½o pode existir 2 chaves iguais
+    // se for igual, nao vai inserir
+    // nao pode existir 2 chaves iguais
 }
 
 No *ArvoreBST::getRaiz()
@@ -92,7 +92,7 @@ No *ArvoreBST::Pesquisar(int dado, No *no)
 {
     if (raiz == NULL)
         return NULL; // arvore vazia
-    No *atual = no;  // cria ptr aux (atual) e comeca a procurar
+    No *atual = no;  // cria ponteiro para aux para no' (atual) e comeca a procurar
     while (atual->getChave() != dado)
     {
         if (dado < atual->getChave())
@@ -108,20 +108,25 @@ No *ArvoreBST::Pesquisar(int dado, No *no)
 // versao recursiva
 No *ArvoreBST::PesquisarRec(No *r, int k)
 {
-    if (r == NULL || r->getChave() == k)
-        return r;
-    if (r->getChave() > k)
-        return PesquisarRec(r->getEsq(), k);
-    else
-        return PesquisarRec(r->getDir(), k);
+    if (r == NULL || r->getChave() == k) // Se a Raiz desta Subarvore for NULL ou tem chave k.
+        return r; // Retorna este No'
+    if (r->getChave() > k) // Se a raiz desta Subarvore for > K
+        return PesquisarRec(r->getEsq(), k); // Procura K na subarvore da Direita
+    else // Se não
+        return PesquisarRec(r->getDir(), k); // Procuta K na subarore da Esquerda
 }
 
 // versao recursiva
 int ArvoreBST::contarNos(No *atual)
 {
+	// Se o no entrado nao existir (NULL)
+	// Retorna o caso base, 0
     if (atual == NULL)
         return 0;
-    else
+    else // Se o no nao for NULL
+    	// Retorna 1 (Conta esta no')
+    	// + contagem da subarvore da esquerda
+    	// + contagem da subarvore da direita
         return (1 + contarNos(atual->getEsq()) + contarNos(atual->getDir()));
 }
 
@@ -150,6 +155,7 @@ int ArvoreBST::altura(No *atual)
 // alturaArvore()
 
 // PROXIMAS ATIVIDADES DE LAB:
-// ContarFolhas()
-// ValorMin()
-// ValorMax()
+// contarFolhas()
+// valorMin()
+// valorMax()
+// remover()

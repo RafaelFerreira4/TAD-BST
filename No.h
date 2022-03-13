@@ -15,7 +15,7 @@ private:
 public:
     No(int chave);
 
-    // fun��es getters e setters
+    // funcoes getters e setters
     int getChave();
     No *getEsq();
     No *getDir();
