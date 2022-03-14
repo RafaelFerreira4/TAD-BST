@@ -214,10 +214,28 @@ void ArvoreBST::printArvore(No *raiz)
 
 void ArvoreBST::arvoreAleatoria(int qntElementos)
 {
-	srand((unsigned)time(NULL)); //Criacao da seed para geracao dos numeros pseudo-aleatorios
-	for (int i = 0; i < qntElementos; i++)
-	{
-		this->inserir((rand() % 30) +1);
+	// Criacao da seed para geracao dos numeros pseudo-aleatorios
+	srand((unsigned)time(NULL)); 
+	
+	int inseridos = 0;
+	int sorteado;
+	int tentativas = 0;
+		
+	// Sai do loop apenas quando a quantidade de elementos
+	// Pedida forem inseridos
+	while (inseridos < qntElementos){
+		// Sorteia o dado a ser entrado, e certifica que o código nunca irá
+		// entrar em um loop infinico, adicionando ao limite do numero sorteado
+		// a quantiadade de tentativas.
+		sorteado = (rand() % qntElementos + tentativas);
+		
+		// Se o dado não estiver na tabela, insere o dado
+		if (this->PesquisarRec( this->getRaiz(), sorteado) == NULL){
+			this->inserir(sorteado);
+			inseridos += 1;
+		}
+		
+		tentativas += 1;
 	}
 }
 
