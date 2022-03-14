@@ -149,7 +149,7 @@ int main()
 			{
 				cout << "\nLegenda:\n";
 				cout << "R = Raiz\nD = Filho Direita\nE = Filho Esquerda\nF = Folha\n";
-				cout << "\nImpressão:\n";
+				cout << "\nImpressÃ£o:\n";
 				arv.printArvore(arv.getRaiz());
 				break;
 			}
@@ -157,7 +157,7 @@ int main()
 				cout << "Informe a quantidade de elementos para inserir: ";
 				cin >> x;
 				arv.arvoreAleatoria(x);
-				cout << "Arvore preenchida com " << x << "chaves aleatorias";
+				cout << "Arvore preenchida com " << x << " chaves aleatorias";
 				break;
 			default:
 				if (opcao != 0)
