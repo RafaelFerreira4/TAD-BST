@@ -8,6 +8,10 @@ ArvoreBST::ArvoreBST()
     raiz = NULL;
 }
 
+bool ArvoreBST::ehFolha(No *no){
+	return (no->getDir() == NULL && no->getEsq() == NULL);
+}
+
 void ArvoreBST::inserir(int chave)
 {
     if (raiz == NULL)         // verifica se a arvore esta' vazia
@@ -156,9 +160,9 @@ int ArvoreBST::contarFolhas(No *atual)
 	// Retorna o caso base NULL, 0
     if (atual == NULL)
         return 0;
-    // Se o no' nao possuir filhos e' um no' folha
+    // Se o no' nao possuir filhos, entao e' um no' folha
     // Retorna o caso basse folha, 1
-    else if (atual->getDir() == NULL && atual->getEsq() == NULL) 
+    else if (ehFolha(atual))
         return 1;
     // Se o no' nao e' NULL e nem Folha
     // Percorre as subarvores
@@ -176,26 +180,35 @@ void ArvoreBST::printArvore(const string &base, No *atual, bool ehEsquerda, bool
 
 		// Imprime E para No' esquerdo e D para no' Direito
 		if (ehRaiz)
-			cout << ("> R (") ;
+			cout << ("   R(") ;
 		else if (ehEsquerda)
-			cout << ("> E (") ;
+			cout << ("\\--E(") ;
 		else
-			cout << ("> D (") ;
+			cout << ("|--D(") ;
         
         // Imprime No' 
-		cout << atual->getChave() << ")" << endl;
+		cout << atual->getChave() << ") ";
+		if (ehFolha(atual))
+			cout << "F";
+		cout << endl;
 
         // Entra proxima subarvore
-        printArvore(base + "     ", atual->getDir(), false, false);
-        printArvore(base + "     ", atual->getEsq(), true,  false); 
-    }
+        if (ehEsquerda) {
+	        printArvore(base + "     ", atual->getDir(), false, false);
+	        printArvore(base + "     ", atual->getEsq(), true,  false); 
+    	} 
+    	else {
+    		printArvore(base + "|    ", atual->getDir(), false, false);
+	        printArvore(base + "|    ", atual->getEsq(), true,  false); 
+		}
+	}	
 }
 
 void ArvoreBST::printArvore(No *raiz)
 {
 	if (raiz == NULL)
 		cout << "Arvore Vazia!\n";
-    printArvore("", raiz, false, true);    
+    printArvore("", raiz, true, true);    
 }
 
 // ATIVIDADES INICIAIS DE LAB:

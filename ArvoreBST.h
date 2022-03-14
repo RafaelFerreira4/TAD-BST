@@ -7,6 +7,7 @@ class ArvoreBST
 {
 private:
     No *raiz;
+    bool ehFolha(No* no);
 
 public:
     ArvoreBST();

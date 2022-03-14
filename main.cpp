@@ -146,7 +146,7 @@ int main()
 			case 10:
 			{
 				cout << "\nLegenda:\n";
-				cout << "R = Raiz\nE = Filho Esquerda\nD = Filho Direita\n";
+				cout << "R = Raiz\nD = Filho Direita\nE = Filho Esquerda\nF = Folha\n";
 				cout << "\nImpressão:\n";
 				arv.printArvore(arv.getRaiz());
 				break;
