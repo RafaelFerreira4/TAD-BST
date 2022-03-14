@@ -10,6 +10,8 @@ private:
 
 public:
     ArvoreBST();
+    void printArvore(No *raiz);
+    void printArvore(const string &base, No *atual, bool ehEsquerda, bool ehRaiz);
     void inserir(int chSave);
     void inserirAux(No *raiz, int chave);
     No *getRaiz();

@@ -166,6 +166,38 @@ int ArvoreBST::contarFolhas(No *atual)
 		return contarFolhas(atual->getEsq()) + contarFolhas(atual->getDir());
 }
 
+void ArvoreBST::printArvore(const string &base, No *atual, bool ehEsquerda, bool ehRaiz)
+{
+    if( atual != NULL )
+    {
+    	// Imprime o delimitador passado recursivamente
+    	// E' este cout que cria o efeito de niveis
+        cout << base;
+
+		// Imprime E para No' esquerdo e D para no' Direito
+		if (ehRaiz)
+			cout << ("> R (") ;
+		else if (ehEsquerda)
+			cout << ("> E (") ;
+		else
+			cout << ("> D (") ;
+        
+        // Imprime No' 
+		cout << atual->getChave() << ")" << endl;
+
+        // Entra proxima subarvore
+        printArvore(base + "     ", atual->getDir(), false, false);
+        printArvore(base + "     ", atual->getEsq(), true,  false); 
+    }
+}
+
+void ArvoreBST::printArvore(No *raiz)
+{
+	if (raiz == NULL)
+		cout << "Arvore Vazia!\n";
+    printArvore("", raiz, false, true);    
+}
+
 // ATIVIDADES INICIAIS DE LAB:
 // pesquisar()
 // qdeNos()

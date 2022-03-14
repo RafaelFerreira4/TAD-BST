@@ -1,5 +1,7 @@
 #include <iostream>
 #include <conio.h>
+#include <locale.h>
+
 #include "No.h"
 #include "ArvoreBST.h"
 
@@ -48,7 +50,7 @@ void print_logo(){
 
 int main()
 {
-	
+	setlocale(LC_ALL,"");
 	print_logo(); // Print primeira tela
 	
 	ArvoreBST arv;
@@ -74,78 +76,90 @@ int main()
 		cout << "\n***********************************";
 		cout << "\n-> ";
 		cin >> opcao;
-		switch (opcao)
-		{
-		case 1:
-		{
-			cout << "\n Informe o valor (int) -> ";
-			cin >> x;
-			arv.inserir(x);
-			break;
-		}
-		case 2:
-		{
-			cout << "\n Ainda nao implementado! ";
-
-			break;
-		}
-		case 3:
-		{
-			cout << "\n Informe o valor da chave (int) -> ";
-			cin >> x;
-			// No *ret = arv.Pesquisar(x,arv.getRaiz());
-			No *ret = arv.PesquisarRec(arv.getRaiz(), x);
-			if (ret == NULL)
+		switch (opcao){
+			case 1:
 			{
-				cout << "\n Chave nao encontrada! ";
+				cout << "\n Informe o valor (int) -> ";
+				cin >> x;
+				cout << "\nAnterior:\n";
+				arv.printArvore(arv.getRaiz());
+				
+				arv.inserir(x);
+				
+				cout << "\nNova:\n";
+				arv.printArvore(arv.getRaiz());
+				break;
 			}
-			else
+			case 2:
 			{
-				cout << "\n Chave encontrada! ";
+				cout << "\n Ainda nao implementado! ";
+	
+				break;
 			}
-			break;
-		}
-		case 4:
-		{
-			cout << "Percorrendo em ordem...\n";
-			arv.emOrdem(arv.getRaiz());
-			break;
-		}
-		case 5:
-		{
-			cout << "Qde de nos: " << arv.contarNos(arv.getRaiz());
-			break;
-		}
-		case 6:
-		{
-			cout << "Altura da Arvore: " << arv.altura(arv.getRaiz());
-			break;
-		}
-		case 7:
-		{
-			cout << "Qde de folhas: " << arv.contarFolhas(arv.getRaiz());
-			break;
-		}
-		case 8:
-		{
-			cout << "text" ;
-			break;
-		}
-		case 9:
-		{
-			cout << "text" ;
-			break;
-		}
-		case 10:
-		{
-			cout << "text" ;
-			break;
-		}
-		default:
-			if (opcao != 0)
-				cout << "\n Opcao invalida! \n\n\n";
+			case 3:
+			{
+				cout << "\n Informe o valor da chave (int) -> ";
+				cin >> x;
+				// No *ret = arv.Pesquisar(x,arv.getRaiz());
+				No *ret = arv.PesquisarRec(arv.getRaiz(), x);
+				if (ret == NULL)
+				{
+					cout << "\n Chave nao encontrada! ";
+				}
+				else
+				{
+					cout << "\n Chave encontrada! ";
+				}
+				break;
+			}
+			case 4:
+			{
+				cout << "Percorrendo em ordem...\n";
+				arv.emOrdem(arv.getRaiz());
+				break;
+			}
+			case 5:
+			{
+				cout << "Qde de nos: " << arv.contarNos(arv.getRaiz());
+				break;
+			}
+			case 6:
+			{
+				cout << "Altura da Arvore: " << arv.altura(arv.getRaiz());
+				break;
+			}
+			case 7:
+			{
+				cout << "Qde de folhas: " << arv.contarFolhas(arv.getRaiz());
+				break;
+			}
+			case 8:
+			{
+				cout << "text" ;
+				break;
+			}
+			case 9:
+			{
+				cout << "text" ;
+				break;
+			}
+			case 10:
+			{
+				cout << "\nLegenda:\n";
+				cout << "R = Raiz\nE = Filho Esquerda\nD = Filho Direita\n";
+				cout << "\nImpressão:\n";
+				arv.printArvore(arv.getRaiz());
+				break;
+			}
+			default:
+				if (opcao != 0)
+					cout << "\n Opcao invalida! \n\n\n";
 		} // fim switch
-	continuar();
+	
+		if (opcao != 0){
+			continuar();
+		}
+	
 	} while (opcao != 0);
 
 	return 0;
