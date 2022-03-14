@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <iostream>
+#include <time.h>
 #include "No.h"
 #include "ArvoreBST.h"
 
@@ -161,7 +162,7 @@ int ArvoreBST::contarFolhas(No *atual)
     if (atual == NULL)
         return 0;
     // Se o no' nao possuir filhos, entao e' um no' folha
-    // Retorna o caso basse folha, 1
+    // Retorna o caso base folha, 1
     else if (ehFolha(atual))
         return 1;
     // Se o no' nao e' NULL e nem Folha
@@ -211,6 +212,36 @@ void ArvoreBST::printArvore(No *raiz)
     printArvore("", raiz, true, true);    
 }
 
+void ArvoreBST::arvoreAleatoria(int qntElementos)
+{
+	srand((unsigned)time(NULL)); //Criacao da seed para geracao dos numeros pseudo-aleatorios
+	for (int i = 0; i < qntElementos; i++)
+	{
+		this->inserir((rand() % 30) +1);
+	}
+}
+
+int ArvoreBST::getMax()
+{
+	if (raiz == NULL)
+		cout << "Arvore Vazia!\n";
+	No* atual = this->getRaiz();
+	while (atual->getDir() != NULL){
+		atual = atual->getDir();
+	}
+	return  atual->getChave();
+}
+
+int ArvoreBST::getMin()
+{
+	if (raiz == NULL)
+		cout << "Arvore Vazia!\n";
+	No* atual = this->getRaiz();
+	while (atual->getEsq() != NULL){
+		atual = atual->getEsq();
+	}
+	return  atual->getChave();
+}
 // ATIVIDADES INICIAIS DE LAB:
 // pesquisar()
 // qdeNos()

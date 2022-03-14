@@ -44,7 +44,7 @@ void print_logo(){
 	cout << " Por:                                                            "<< endl;
 	cout << " Igor Soler Cavalcanti - 42013550                                "<< endl;
 	cout << " Paloma                                                          "<< endl;
-	cout << " Rafael                                                          "<< endl;
+	cout << " Rafael Miranda Ferreira - 42080932                              "<< endl;
 	continuar();
 }
 
@@ -73,6 +73,8 @@ int main()
 		cout << "\n ----8: Valor max";			// 
 		cout << "\n ----9: Valor min";			// 
 		cout << "\n ---10: Imprimir Formatado"; // OPCIONAL!
+		cout << "\n ---11: Preencher aleatoriamente";
+
 		cout << "\n***********************************";
 		cout << "\n-> ";
 		cin >> opcao;
@@ -135,12 +137,12 @@ int main()
 			}
 			case 8:
 			{
-				cout << "text" ;
+				cout << "Valor max na arvore: " << arv.getMax();
 				break;
 			}
 			case 9:
 			{
-				cout << "text" ;
+				cout << "Valor min na arvore " << arv.getMin();
 				break;
 			}
 			case 10:
@@ -151,6 +153,12 @@ int main()
 				arv.printArvore(arv.getRaiz());
 				break;
 			}
+			case 11:
+				cout << "Informe a quantidade de elementos para inserir: ";
+				cin >> x;
+				arv.arvoreAleatoria(x);
+				cout << "Arvore preenchida com " << x << "chaves aleatorias";
+				break;
 			default:
 				if (opcao != 0)
 					cout << "\n Opcao invalida! \n\n\n";

@@ -24,4 +24,7 @@ public:
     int contarNos(No *atual);
     int contarFolhas(No *atual);
     int altura(No *atual);
+    void arvoreAleatoria(int qtdElementos);
+    int getMax();
+    int getMin();
 };
