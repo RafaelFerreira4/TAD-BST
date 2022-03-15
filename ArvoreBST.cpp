@@ -260,6 +260,30 @@ int ArvoreBST::getMin()
 	}
 	return  atual->getChave();
 }
+
+void ArvoreBST::clear(){
+	No *raiz = this->getRaiz();
+	
+	ArvoreBST::clear(raiz);
+	this->raiz = NULL;
+}
+
+// Método Privado
+void ArvoreBST::clear(No *atual)
+{
+	if (atual == NULL){
+		return;
+	}
+	else{
+		this->clear(atual->getDir());
+		this->clear(atual->getEsq());
+		cout << "No' " << atual->getChave() << " excluido!\n";
+		delete(atual);
+	}
+}
+
+
+
 // ATIVIDADES INICIAIS DE LAB:
 // pesquisar()
 // qdeNos()

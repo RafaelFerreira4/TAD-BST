@@ -62,18 +62,19 @@ int main()
 		cout << "\n\tMenu - Arvore BST\n";
 		
 		cout << "\nEntre com a opcao:";
-		cout << "\n ----0: Sair do programa\n";	// Implementado
-		cout << "\n ----1: Inserir"; 			// Implementado
-		cout << "\n ----2: Excluir";           	//
-		cout << "\n ----3: Pesquisar";			// Implementado
-		cout << "\n ----4: Imprimir em ordem";	// Implementado
-		cout << "\n ----5: Qde de nos";			// Implementado
-		cout << "\n ----6: Altura";				// Implementado
-		cout << "\n ----7: Qde de folhas";		// 
-		cout << "\n ----8: Valor max";			// 
-		cout << "\n ----9: Valor min";			// 
-		cout << "\n ---10: Imprimir Formatado"; // OPCIONAL!
-		cout << "\n ---11: Preencher aleatoriamente";
+		cout << "\n ----0: Sair do programa\n";	      // Implementado
+		cout << "\n ----1: Inserir"; 			      // Implementado
+		cout << "\n ----2: Excluir";           	      //
+		cout << "\n ----3: Pesquisar";			      // Implementado
+		cout << "\n ----4: Imprimir em ordem";	      // Implementado
+		cout << "\n ----5: Qde de nos";			      // Implementado
+		cout << "\n ----6: Altura";				      // Implementado
+		cout << "\n ----7: Qde de folhas";		      // Implementado
+		cout << "\n ----8: Valor max";			      // Implementado
+		cout << "\n ----9: Valor min";			      // Implementado
+		cout << "\n ---10: Imprimir Formatado"; 	  // Implementado
+		cout << "\n ---11: Preencher aleatoriamente"; // Implementado
+		cout << "\n ---12: Limpa a Arvore";           // Implementado
 
 		cout << "\n***********************************";
 		cout << "\n-> ";
@@ -149,16 +150,26 @@ int main()
 			{
 				cout << "\nLegenda:\n";
 				cout << "R = Raiz\nD = Filho Direita\nE = Filho Esquerda\nF = Folha\n";
-				cout << "\nImpressão:\n";
+				cout << "\nImpressao:\n";
 				arv.printArvore(arv.getRaiz());
 				break;
 			}
 			case 11:
+			{
 				cout << "Informe a quantidade de elementos para inserir: ";
 				cin >> x;
 				arv.arvoreAleatoria(x);
 				cout << "Arvore preenchida com " << x << " chaves aleatorias";
 				break;
+			}
+			case 12:
+			{
+				arv.clear();
+				cout << "Todos os no's foram deletados\n";
+				cout << "A arvore agora esta' Vazia!\n";
+				
+				break;
+			}
 			default:
 				if (opcao != 0)
 					cout << "\n Opcao invalida! \n\n\n";
