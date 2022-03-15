@@ -275,22 +275,11 @@ void ArvoreBST::clear(No *atual)
 		return;
 	}
 	else{
-		this->clear(atual->getDir());
+		// Em Ordem
 		this->clear(atual->getEsq());
 		cout << "No' " << atual->getChave() << " excluido!\n";
+		this->clear(atual->getDir());
+		
 		delete(atual);
 	}
 }
-
-
-
-// ATIVIDADES INICIAIS DE LAB:
-// pesquisar()
-// qdeNos()
-// alturaArvore()
-
-// PROXIMAS ATIVIDADES DE LAB:
-// contarFolhas()
-// valorMin()
-// valorMax()
-// remover()

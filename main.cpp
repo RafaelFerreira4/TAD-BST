@@ -164,8 +164,11 @@ int main()
 			}
 			case 12:
 			{
+				cout << endl;
+				
 				arv.clear();
-				cout << "Todos os no's foram deletados\n";
+				
+				cout << "\nTodos os no's foram deletados\n";
 				cout << "A arvore agora esta' Vazia!\n";
 				
 				break;
