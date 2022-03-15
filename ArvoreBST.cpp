@@ -283,3 +283,74 @@ void ArvoreBST::clear(No *atual)
 		delete(atual);
 	}
 }
+
+void ArvoreBST::banana(int chave)
+{
+	string direcao;
+	if (raiz == NULL)
+	{
+        cout << "Arvore vazia!"; 
+        return;
+    }
+    No *anterior = NULL;
+	No *atual = raiz;  // cria ponteiro para aux para no' (atual) e comeca a procurar
+    while (atual->getChave() != chave)
+    {
+    	anterior = atual;
+        if (chave < atual->getChave()){
+		
+            atual = atual->getEsq(); // caminha para esquerda
+            direcao = "Esq";
+        } else {
+		    atual = atual->getDir(); // caminha para direita
+        	direcao = "Dir";
+		}if (atual == NULL)
+		{
+			cout << "Elemento não encontrado!";
+			return;
+		}
+    }
+    if (ehFolha(atual)) {
+    	if (anterior != NULL) { //Caso em que o elemento a ser removido é a raiz
+    		if (direcao == "Esq")
+    			anterior->setEsq(NULL);
+			else
+				anterior->setDir(NULL);
+			delete(atual);
+			cout << "Nó folha de chave "<< chave << " removido";
+		} else  {
+			delete(atual); // Caso seja a raiz, apenas deletar ela e colocar raiz = null
+			raiz = NULL;
+			cout << "Nó raiz sem filhos removido!";
+		}
+    	
+	} 
+	else if ((atual->getDir() == NULL && atual->getEsq() != NULL) || (atual->getDir() != NULL && atual->getEsq() == NULL)) // Nao é folha e só possui um filho
+	{ 
+		if(anterior != NULL){ //Caso não seja a raiz
+			if (direcao == "Esq")
+				if (atual->getEsq() != NULL)
+					anterior->setEsq(atual->getEsq());
+				else
+					anterior->setEsq(atual->getDir());
+			else
+				if (atual->getEsq() != NULL)
+					anterior->setDir(atual->getEsq());
+				else
+					anterior->setDir(atual->getDir());
+			delete(atual);
+			cout << "Nó com chave " << chave << " com apenas um nó filho foi removido!";
+		} else { // Nó a ser removido é o nó raiz
+			if (direcao == "Esq")
+				raiz = atual->getEsq();
+			else 
+				raiz = atual->getDir();
+			delete(atual);
+		}
+	} 
+	//else if (atual->getEsq() == NULL && atual->getDir() != NULL) // Nao é folha e só possui um filho na direita
+	//{
+		
+	//}
+	return;
+}

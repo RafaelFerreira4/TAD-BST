@@ -29,4 +29,5 @@ public:
     int getMax();
     int getMin();
     void clear();
+    void banana(int chave);
 };
