@@ -284,18 +284,9 @@ void ArvoreBST::clear(No *atual)
 	}
 }
 
-<<<<<<< HEAD
-void ArvoreBST::removerNo(int chave)
-{
-	const int ESQUERDA = 1;
-	const int DIREITA = 2;
-	int direcao;
-	
-=======
 void ArvoreBST::banana(int chave)
 {
 	string direcao;
->>>>>>> d2cf3c9e70b82211dd9e81e9e133aebebb586b90
 	if (raiz == NULL)
 	{
         cout << "Arvore vazia!"; 
@@ -303,50 +294,26 @@ void ArvoreBST::banana(int chave)
     }
     No *anterior = NULL;
 	No *atual = raiz;  // cria ponteiro para aux para no' (atual) e comeca a procurar
-<<<<<<< HEAD
-	
-	// Encontra no' com a chave escolhida
-	// Desta mesma forma, encontra o no' pai deste
-=======
->>>>>>> d2cf3c9e70b82211dd9e81e9e133aebebb586b90
     while (atual->getChave() != chave)
     {
     	anterior = atual;
         if (chave < atual->getChave()){
 		
             atual = atual->getEsq(); // caminha para esquerda
-<<<<<<< HEAD
-            direcao = ESQUERDA;
-        } else {
-		    atual = atual->getDir(); // caminha para direita
-        	direcao = DIREITA;
-=======
             direcao = "Esq";
         } else {
 		    atual = atual->getDir(); // caminha para direita
         	direcao = "Dir";
->>>>>>> d2cf3c9e70b82211dd9e81e9e133aebebb586b90
 		}if (atual == NULL)
 		{
 			cout << "Elemento não encontrado!";
 			return;
 		}
     }
-<<<<<<< HEAD
-    
-    // O no' a ser removido é folha.
-    if (ehFolha(atual)) {
-    	if (anterior != NULL) { //Caso em que o elemento a ser removido é a raiz
-    		// No' esta a esquerda do pai 
-    		if (direcao == ESQUERDA)
-    			anterior->setEsq(NULL);
-    		// No' esta a direita do pai 
-=======
     if (ehFolha(atual)) {
     	if (anterior != NULL) { //Caso em que o elemento a ser removido é a raiz
     		if (direcao == "Esq")
     			anterior->setEsq(NULL);
->>>>>>> d2cf3c9e70b82211dd9e81e9e133aebebb586b90
 			else
 				anterior->setDir(NULL);
 			delete(atual);
@@ -358,96 +325,20 @@ void ArvoreBST::banana(int chave)
 		}
     	
 	} 
-<<<<<<< HEAD
-	
-	// O no' a ser removido possui 1 filho apenas
-	else if ((atual->getDir() == NULL && atual->getEsq() != NULL) || (atual->getDir() != NULL && atual->getEsq() == NULL)) // Nao é folha e só possui um filho
-	{ 
-		// No' nao e' raiz
-		if(anterior != NULL){
-			// No' esta a esquerda do pai 
-			if (direcao == ESQUERDA)
-=======
 	else if ((atual->getDir() == NULL && atual->getEsq() != NULL) || (atual->getDir() != NULL && atual->getEsq() == NULL)) // Nao é folha e só possui um filho
 	{ 
 		if(anterior != NULL){ //Caso não seja a raiz
 			if (direcao == "Esq")
->>>>>>> d2cf3c9e70b82211dd9e81e9e133aebebb586b90
 				if (atual->getEsq() != NULL)
 					anterior->setEsq(atual->getEsq());
 				else
 					anterior->setEsq(atual->getDir());
-<<<<<<< HEAD
-			// No' esta a direita do pai 
-=======
->>>>>>> d2cf3c9e70b82211dd9e81e9e133aebebb586b90
 			else
 				if (atual->getEsq() != NULL)
 					anterior->setDir(atual->getEsq());
 				else
 					anterior->setDir(atual->getDir());
 			delete(atual);
-<<<<<<< HEAD
-			cout << "Nó com chave " << chave << " e apenas um nó filho foi removido!";
-		} 
-		// No' e' raiz
-		else {
-			// No' esta a direita do pai 
-			if (direcao == ESQUERDA)
-				raiz = atual->getEsq();
-			// No' esta a esquerda do pai
-			else 
-				raiz = atual->getDir();
-			delete(atual);
-			cout << "Nó raiz com chave " << chave << " e apenas um no' filho foi removido!";
-		}
-	} 
-	
-	// O no' a ser removido possui 2 filhos
-	else{
-		No *tmp;
-
-		// No inicial e' filho esquerdo do pai
-		if (direcao == ESQUERDA){
-			tmp = atual->getEsq();
-			while (tmp->getDir() != NULL){
-				tmp = tmp->getDir();
-			}
-			tmp->setDir(atual->getDir());
-			tmp = atual;
-			// No' nao e' raiz
-			if(anterior != NULL){
-				anterior->setEsq(atual->getEsq());
-				cout << "Nó com chave " << chave << " e 2 no's filho foi removido!";
-			}
-			// No' e' raiz
-			else{
-				raiz = atual->getEsq();
-				cout << "Nó raiz com chave " << chave << " e 2 no's filho foi removido!";
-			}
-		}
-		// No inicial e' filho direito do pai
-		else {
-			tmp = atual->getEsq();
-			while (tmp->getDir() != NULL){
-				tmp = tmp->getDir();
-			}
-			tmp->setDir(atual->getDir());
-			tmp = atual;
-			// No' nao e' raiz
-			if(anterior != NULL){
-				anterior->setDir(atual->getEsq());
-				cout << "Nó com chave " << chave << " e 2 no's filho foi removido!";
-			}
-			// No' e' raiz
-			else{
-				raiz = atual->getEsq();
-				cout << "Nó raiz com chave " << chave << " e 2 no's filho foi removido!";
-			}
-		}
-		delete(tmp); // Apaga Atual e tmp, como ambos possuem o mesmo endereço armazenadonpossue
-	}
-=======
 			cout << "Nó com chave " << chave << " com apenas um nó filho foi removido!";
 		} else { // Nó a ser removido é o nó raiz
 			if (direcao == "Esq")
@@ -461,6 +352,5 @@ void ArvoreBST::banana(int chave)
 	//{
 		
 	//}
->>>>>>> d2cf3c9e70b82211dd9e81e9e133aebebb586b90
 	return;
 }

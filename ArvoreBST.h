@@ -29,9 +29,5 @@ public:
     int getMax();
     int getMin();
     void clear();
-<<<<<<< HEAD
-    void removerNo(int chave);
-=======
-    void banana(int chave);
->>>>>>> d2cf3c9e70b82211dd9e81e9e133aebebb586b90
+    void banana();
 };
