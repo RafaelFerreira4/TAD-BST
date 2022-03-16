@@ -95,8 +95,16 @@ int main()
 			}
 			case 2:
 			{
-				cout << "\n Ainda nao implementado! ";
-	
+				cout << "\n Informe a chave a remover (int) -> ";
+				cin >> x;
+				cout << "\nAnterior:\n";
+				arv.printArvore(arv.getRaiz());
+				cout << endl;
+				
+				arv.removerNo(x);
+				
+				cout << "\n\nNova:\n";
+				arv.printArvore(arv.getRaiz());
 				break;
 			}
 			case 3:
